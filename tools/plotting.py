@@ -1060,7 +1060,8 @@ def plot_slope_comparison(
     figsize=(10,5),
     output_path=None, 
     return_ax = False,
-    ax_passed = None
+    ax_passed = None,
+    xaxislabelscale = 1.2
 ):
    
     """
@@ -1082,7 +1083,7 @@ def plot_slope_comparison(
     import matplotlib.pyplot as plt
     import seaborn as sns
     
-    sns.set_context('talk')
+    #sns.set_context('talk', font_scale = 1.1)
   
     if colors is None:
         colors = plt.cm.Set2.colors
@@ -1172,7 +1173,9 @@ def plot_slope_comparison(
     
     ax.set_xticks(centers)
     #ax.set_xticks(x + (len(variant_order)-1)*width/2)
-    ax.set_xticklabels(labels, rotation=45, ha='right')
+    ax.set_xticklabels(labels, rotation=45, ha='right',
+                      fontsize=ax.xaxis.get_ticklabels()[0].get_fontsize() * xaxislabelscale
+                      )
 
    
     
